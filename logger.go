@@ -17,24 +17,24 @@ const (
 	LogTypeDebug           = 5
 )
 
-func Success(msg string) {
-	Log(msg, LogTypeSuccess)
+func Success(msg string, params ...interface{}) {
+	Log(msg, LogTypeSuccess, params)
 }
 
-func Warning(msg string) {
-	Log(msg, LogTypeWarning)
+func Warning(msg string, params ...interface{}) {
+	Log(msg, LogTypeWarning, params)
 }
 
-func Error(msg string) {
-	Log(msg, LogTypeError)
+func Error(msg string, params ...interface{}) {
+	Log(msg, LogTypeError, params)
 }
 
-func Info(msg string) {
-	Log(msg, LogTypeInfo)
+func Info(msg string, params ...interface{}) {
+	Log(msg, LogTypeInfo, params)
 }
 
-func Debug(msg string) {
-	Log(msg, LogTypeDebug)
+func Debug(msg string, params ...interface{}) {
+	Log(msg, LogTypeDebug, params)
 }
 
 func Dump(i interface{}) {
@@ -47,8 +47,8 @@ func Dump(i interface{}) {
 	Log(string(b), LogTypeDebug)
 }
 
-func Log(msg string, logType LogType) {
-	fmt.Printf("%s %s: %s\n", time.Now().Format("2006-01-02 15:04:05"), getLogTypeHeader(logType), msg)
+func Log(msg string, logType LogType, params ...interface{}) {
+	fmt.Printf("%s %s: %s\n", time.Now().Format("2000-01-01 00:00:00"), getLogTypeHeader(logType), fmt.Sprintf(msg, params...))
 }
 
 func LogErr(err error) {
