@@ -18,23 +18,23 @@ const (
 )
 
 func Success(msg string, params ...interface{}) {
-	Log(msg, LogTypeSuccess, params)
+	Log(msg, LogTypeSuccess, params...)
 }
 
 func Warning(msg string, params ...interface{}) {
-	Log(msg, LogTypeWarning, params)
+	Log(msg, LogTypeWarning, params...)
 }
 
 func Error(msg string, params ...interface{}) {
-	Log(msg, LogTypeError, params)
+	Log(msg, LogTypeError, params...)
 }
 
 func Info(msg string, params ...interface{}) {
-	Log(msg, LogTypeInfo, params)
+	Log(msg, LogTypeInfo, params...)
 }
 
 func Debug(msg string, params ...interface{}) {
-	Log(msg, LogTypeDebug, params)
+	Log(msg, LogTypeDebug, params...)
 }
 
 func Dump(i interface{}) {
