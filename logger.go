@@ -48,7 +48,7 @@ func Dump(i interface{}) {
 }
 
 func Log(msg string, logType LogType, params ...interface{}) {
-	fmt.Printf("%s %s: %s\n", time.Now().Format("2000-01-01 00:00:00"), getLogTypeHeader(logType), fmt.Sprintf(msg, params...))
+	fmt.Printf("%s %s: %s\n", time.Now().Format(time.RFC3339), getLogTypeHeader(logType), fmt.Sprintf(msg, params...))
 }
 
 func LogErr(err error) {
@@ -58,7 +58,7 @@ func LogErr(err error) {
 	_, fileName, lineNumber, _ := runtime.Caller(1)
 
 	fmt.Printf("%s %s: %s\n at: %s:%d \n",
-		time.Now().Format("2006-01-02 15:04:05"),
+		time.Now().Format(time.RFC3339),
 		getLogTypeHeader(LogTypeError),
 		err.Error(),
 		fileName,
